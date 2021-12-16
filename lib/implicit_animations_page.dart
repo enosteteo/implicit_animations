@@ -35,7 +35,11 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
               width: isExpaned ? 100 : 50,
               height: isExpaned ? 100 : 50,
               color: isExpaned ? Colors.red : Colors.blue,
-              child: Text('Flutterando'),
+              child: AnimatedScale(
+                duration: duration,
+                scale: isExpaned ? 2 : 1,
+                child: Text('Flutterando'),
+              ),
             ),
           ),
         ),
