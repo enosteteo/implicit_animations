@@ -28,18 +28,14 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
           },
           child: AnimatedScale(
             duration: duration,
-            scale: isExpaned ? 2 : 1,
+            scale: isExpaned ? 3 : 1,
             child: AnimatedContainer(
               duration: duration,
               alignment: Alignment.center,
-              width: isExpaned ? 100 : 50,
-              height: isExpaned ? 100 : 50,
-              color: isExpaned ? Colors.red : Colors.blue,
-              child: AnimatedScale(
-                duration: duration,
-                scale: isExpaned ? 2 : 1,
-                child: Text('Flutterando'),
-              ),
+              width: 100, // isExpaned ? 100 : 50,
+              height: 100, // isExpaned ? 100 : 50,
+              color: Colors.red, // isExpaned ? Colors.red : Colors.blue,
+              child: Text('Flutterando'),
             ),
           ),
         ),
