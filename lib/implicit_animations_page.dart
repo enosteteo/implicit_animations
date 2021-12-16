@@ -26,11 +26,17 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
               isExpaned = !isExpaned;
             });
           },
-          child: AnimatedContainer(
+          child: AnimatedScale(
             duration: duration,
-            width: isExpaned ? 100 : 50,
-            height: isExpaned ? 100 : 50,
-            color: isExpaned ? Colors.red : Colors.blue,
+            scale: isExpaned ? 2 : 1,
+            child: AnimatedContainer(
+              duration: duration,
+              alignment: Alignment.center,
+              width: isExpaned ? 100 : 50,
+              height: isExpaned ? 100 : 50,
+              color: isExpaned ? Colors.red : Colors.blue,
+              child: Text('Flutterando'),
+            ),
           ),
         ),
       ),
