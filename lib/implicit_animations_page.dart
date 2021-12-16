@@ -8,6 +8,7 @@ class ImplicitAnimationsPage extends StatefulWidget {
 }
 
 class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
+  bool isExpaned = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,10 +16,18 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
         title: Text('Implicit Animations'),
       ),
       body: Center(
-        child: Container(
-          width: 100,
-          height: 100,
-          color: Colors.red,
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              isExpaned = !isExpaned;
+            });
+          },
+          child: AnimatedContainer(
+            duration: Duration(seconds: 1, milliseconds: 50),
+            width: isExpaned ? 100 : 50,
+            height: isExpaned ? 100 : 50,
+            color: isExpaned ? Colors.red : Colors.blue,
+          ),
         ),
       ),
     );
