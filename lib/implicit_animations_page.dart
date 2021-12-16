@@ -22,8 +22,8 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
               isExpaned = !isExpaned;
             });
           },
-          child: AnimatedContainer(
-            duration: Duration(seconds: 1, milliseconds: 50),
+          child: Container(
+            // duration: Duration(seconds: 1, milliseconds: 50),
             width: isExpaned ? 100 : 50,
             height: isExpaned ? 100 : 50,
             color: isExpaned ? Colors.red : Colors.blue,
