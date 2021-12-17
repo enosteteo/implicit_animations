@@ -26,18 +26,16 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
               isExpaned = !isExpaned;
             });
           },
-          child: ClipRect(
+          child: AnimatedScale(
+            duration: duration,
+            scale: isExpaned ? 2 : 1,
             child: AnimatedContainer(
               duration: duration,
               alignment: Alignment.center,
               width: 100,
               height: 100,
               color: Colors.red,
-              child: AnimatedScale(
-                duration: duration,
-                scale: isExpaned ? 3 : 1,
-                child: Text('Flutterando'),
-              ),
+              child: Text('Flutterando'),
             ),
           ),
         ),
