@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:implicit_animations/exercise_one_page.dart';
 import 'package:implicit_animations/implicit_animations_page.dart';
 
 void main() {
@@ -37,14 +38,34 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          ListTile(
-            title: Text('1 - Implicit Animations'),
-            onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => ImplicitAnimationsPage())),
+          GoToListTileWidget(
+            goTo: ImplicitAnimationsPage(),
+            title: '1 - Implicit Animations',
           ),
+          GoToListTileWidget(
+            goTo: ExerciseOnePage(),
+            title: '2 - Exercício 1',
+          )
         ],
+      ),
+    );
+  }
+}
+
+class GoToListTileWidget extends StatelessWidget {
+  Widget goTo;
+  String title;
+
+  GoToListTileWidget({Key? key, required this.goTo, required this.title})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(title),
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => goTo),
       ),
     );
   }
