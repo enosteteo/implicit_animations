@@ -23,13 +23,15 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
   @override
   void initState() {
     super.initState();
-    // timer = Timer.periodic(duration, (timer) () {});
-    // toggle();
+    timer = Timer.periodic(duration, (timer) => toggle());
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      toggle();
+    });
   }
 
   @override
   void dispose() {
-    // timer.cancel();
+    timer.cancel();
     super.dispose();
   }
 
@@ -50,13 +52,13 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
           },
           child: AnimatedScale(
             duration: duration,
-            scale: isExpaned ? 2 : 1,
+            scale: isExpaned ? 1 : 2,
             child: AnimatedContainer(
               duration: duration,
               alignment: Alignment.center,
               width: isExpaned ? 100 : 200,
               height: isExpaned ? 100 : 200,
-              color: isExpaned ? Colors.red : Colors.pinkAccent,
+              color: isExpaned ? Colors.red : Colors.blue,
               child: Text('Flutterando'),
             ),
           ),
