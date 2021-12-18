@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class ImplicitAnimationsPage extends StatefulWidget {
-  const ImplicitAnimationsPage({Key? key}) : super(key: key);
+class GesturePage extends StatefulWidget {
+  const GesturePage({Key? key}) : super(key: key);
 
   @override
-  _ImplicitAnimationsPageState createState() => _ImplicitAnimationsPageState();
+  _GesturePageState createState() => _GesturePageState();
 }
 
-class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
+class _GesturePageState extends State<GesturePage> {
   bool isExpaned = false;
   final duration = Duration(seconds: 1);
 
@@ -25,24 +25,24 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Implicit Animations'),
+        title: Text('Gesture Implicit Animations'),
       ),
       body: AnimatedAlign(
         alignment: isExpaned ? Alignment.center : Alignment.bottomCenter,
         duration: duration,
         child: GestureDetector(
-          onTap: () {
+          onPanStart: (details) {
             setState(() {
-              isExpaned = !isExpaned;
+              isExpaned = true;
             });
+          },
+          onPanEnd: (details) => {
+            setState(() {
+              isExpaned = false;
+            })
           },
           child: AnimatedScale(
             duration: duration,

@@ -2,16 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class ImplicitAnimationsPage extends StatefulWidget {
-  const ImplicitAnimationsPage({Key? key}) : super(key: key);
+class TimerPage extends StatefulWidget {
+  const TimerPage({Key? key}) : super(key: key);
 
   @override
-  _ImplicitAnimationsPageState createState() => _ImplicitAnimationsPageState();
+  _TimerPageState createState() => _TimerPageState();
 }
 
-class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
+class _TimerPageState extends State<TimerPage> {
   bool isExpaned = false;
   final duration = Duration(seconds: 1);
+  late final Timer timer;
 
   void toggle() {
     setState(() {
@@ -22,10 +23,15 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
   @override
   void initState() {
     super.initState();
+    timer = Timer.periodic(duration, (timer) => toggle());
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      toggle();
+    });
   }
 
   @override
   void dispose() {
+    timer.cancel();
     super.dispose();
   }
 
@@ -33,7 +39,7 @@ class _ImplicitAnimationsPageState extends State<ImplicitAnimationsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Implicit Animations'),
+        title: Text('Timer Implicit Animations'),
       ),
       body: AnimatedAlign(
         alignment: isExpaned ? Alignment.center : Alignment.bottomCenter,

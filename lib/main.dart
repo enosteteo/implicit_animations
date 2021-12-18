@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:implicit_animations/exercise_one_page.dart';
 import 'package:implicit_animations/exercise_two_page.dart';
+import 'package:implicit_animations/gesture_page.dart';
 import 'package:implicit_animations/implicit_animations_page.dart';
+import 'package:implicit_animations/timer_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,10 +46,21 @@ class _MyHomePageState extends State<MyHomePage> {
             title: '1 - Implicit Animations',
           ),
           GoToListTileWidget(
-            goTo: ExerciseOnePage(),
-            title: '2 - Exercício 1',
+            goTo: TimerPage(),
+            title: '2 - Timer Implicit Animations',
           ),
-          GoToListTileWidget(goTo: ExerciseTwoPage(), title: '3 - Exercício 2')
+          GoToListTileWidget(
+            goTo: GesturePage(),
+            title: '3 - Gesture Animations',
+          ),
+          GoToListTileWidget(
+            goTo: ExerciseOnePage(),
+            title: '4 - Exercício 1',
+          ),
+          GoToListTileWidget(
+            goTo: ExerciseTwoPage(),
+            title: '5 - Exercício 2',
+          )
         ],
       ),
     );
