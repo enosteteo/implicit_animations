@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:implicit_animations/exercise_one_page.dart';
+import 'package:implicit_animations/exercise_two_page.dart';
 import 'package:implicit_animations/implicit_animations_page.dart';
 
 void main() {
@@ -45,7 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
           GoToListTileWidget(
             goTo: ExerciseOnePage(),
             title: '2 - Exercício 1',
-          )
+          ),
+          GoToListTileWidget(goTo: ExerciseTwoPage(), title: '3 - Exercício 2')
         ],
       ),
     );
