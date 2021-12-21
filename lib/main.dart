@@ -55,11 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GoToListTileWidget(
             goTo: ExerciseOnePage(),
-            title: '4 - Exercício 1',
+            title: '4 - Exercício 1 - Animações implícitas',
           ),
           GoToListTileWidget(
             goTo: ExerciseTwoPage(),
-            title: '5 - Exercício 2',
+            title: '5 - Exercício 2 - Animações implícitas',
           )
         ],
       ),
@@ -68,10 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class GoToListTileWidget extends StatelessWidget {
-  Widget goTo;
-  String title;
+  final Widget goTo;
+  final String title;
 
-  GoToListTileWidget({Key? key, required this.goTo, required this.title})
+  const GoToListTileWidget({Key? key, required this.goTo, required this.title})
       : super(key: key);
 
   @override
