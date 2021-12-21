@@ -15,7 +15,7 @@ class _ExerciseOnePageState extends State<ExerciseOnePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('2 - Exercício 1'),
+        title: Text('4 - Exercício 1 - Animações implícitas'),
       ),
       body: AnimatedAlign(
         alignment: isSquare ? Alignment.topCenter : Alignment.bottomRight,
